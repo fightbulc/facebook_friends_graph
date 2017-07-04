@@ -14,8 +14,8 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="facebook-molo.min.js?v=<?= time() ?>"></script>
-<script src="facebook-friends-graph.js?v=<?= time() ?>"></script>
+<script src="vendor/facebook-molo.min.js?v=<?= time() ?>"></script>
+<script src="facebook-friends-graph.min.js?v=<?= time() ?>"></script>
 
 <script>
     window.fbAsyncInit = function () {
