@@ -6,7 +6,8 @@ var FacebookFriends = (function () {
                 edgeFields: 'likes,comments',
                 points: {
                     comment: 10,
-                    like: 5
+                    like: 5,
+                    combined: 3
                 }
             },
 
@@ -58,16 +59,11 @@ var FacebookFriends = (function () {
                                 that.graph[user.id] = {
                                     id: user.id,
                                     points: 0,
-                                    name: user.name,
-                                    interactions: {
-                                        likes: [],
-                                        comments: []
-                                    }
+                                    name: user.name
                                 };
                             }
 
                             that.graph[user.id].points += points;
-                            that.graph[user.id].interactions[interaction].push(this);
                         }
                     });
                 }
