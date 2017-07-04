@@ -14,7 +14,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="vendor/facebook-molo.min.js?v=<?= time() ?>"></script>
+<script src="assets/vendor/facebook-molo.min.js?v=<?= time() ?>"></script>
 <script src="facebook-friends-graph.min.js?v=<?= time() ?>"></script>
 
 <script>
