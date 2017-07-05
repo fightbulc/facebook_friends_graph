@@ -1,5 +1,12 @@
 var FacebookFriends = (function () {
-    function FriendsGraph(FB, userId) {
+    function FriendsGraph(FB, userId, customOptions) {
+        var defaultOptions = {
+            picture: {
+                width: 50,
+                height: 50
+            }
+        };
+
         var app = {
             config: {
                 edgeLimit: 100,
@@ -8,7 +15,8 @@ var FacebookFriends = (function () {
                     comment: 10,
                     like: 5,
                     combined: 3
-                }
+                },
+                options: $.extend(defaultOptions, customOptions)
             },
 
             graph: {},
@@ -59,7 +67,8 @@ var FacebookFriends = (function () {
                                 that.graph[user.id] = {
                                     id: user.id,
                                     points: 0,
-                                    name: user.name
+                                    name: user.name,
+                                    url_picture: that.buildUserUrlPicture(user.id)
                                 };
                             }
 
@@ -67,6 +76,10 @@ var FacebookFriends = (function () {
                         }
                     });
                 }
+            },
+
+            buildUserUrlPicture: function (userId) {
+                return 'https://graph.facebook.com/' + userId + '/picture?width=' + this.config.options.picture.width + '&height=' + this.config.options.picture.height;
             },
 
             getSortedGraph: function () {

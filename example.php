@@ -37,7 +37,14 @@
                 $('#fblogin').hide();
                 $('#fbconnected').css('display', 'block');
 
-                new FacebookFriends(FB, response.authResponse.userID).build(function (graph) {
+                var options = {
+                    picture: {
+                        width: 100,
+                        height: 100
+                    }
+                };
+
+                new FacebookFriends(FB, response.authResponse.userID, options).build(function (graph) {
                     var total = graph.length;
                     console.log('total graph items:', total);
                     console.log('top 50 items:', graph.slice(0, 50));
